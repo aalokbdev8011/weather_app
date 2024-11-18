@@ -1,0 +1,16 @@
+/* App.css */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.app {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  /* background: linear-gradient(185deg, #86e5e4, #afecbe); */
+  background: linear-gradient(135deg, #d0e9f7, #f8efdb);
+  font-family: "Poppins", sans-serif;
+}
