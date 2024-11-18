@@ -15,7 +15,6 @@ const Home = () => {
   const handleCountryChange = (event) => {
     const country = event.target.value;
     setSelectedCountry(country);
-    console.log(`Selected country: ${event.target.value}`);
   };
 
   const handleCityChange = (event) => {
@@ -24,6 +23,11 @@ const Home = () => {
 
   const handleGetWeather = () => {
     getWeather(city, selectedCountry, setWeatherData, setIsLoading);
+  };
+
+  const formatDateRange = (weatherData) => {
+    const [firstDate, lastDate] = [weatherData[0].datetime, weatherData[weatherData.length - 1].datetime];
+    return `${firstDate.split("T")[0].split("-")[2]} - ${lastDate.split("T")[0].split("-")[2]} ${lastDate.split("T")[0].split("-")[0]}`;
   };
 
 
@@ -67,7 +71,7 @@ const Home = () => {
 
       {weatherData && (
         <div className="weather-results">
-          <h4>{city}</h4>
+          <h4>{formatDateRange(weatherData)} </h4>
           <div className="temperature">
             {weatherData[0].temp}<sup>°C</sup>
           </div>
